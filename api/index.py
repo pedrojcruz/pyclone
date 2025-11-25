@@ -4,4 +4,4 @@ app = FastAPI()
 
 @app.get("/api/index")
 def first():
-    return {"Hello World!"}
+    return {"Hello World, welcome to Vercel!"}
