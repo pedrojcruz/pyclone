@@ -90,20 +90,16 @@ def run_ffmpeg(command: list[str], fast: bool = False) -> None:
 
 
 def extract_reference_audio() -> None:
-    run_ffmpeg(
-        [
-            "ffmpeg",
-            "-y",
-            "-i",
-            str(INPUT_VIDEO),
-            "-vn",
-            "-ac",
-            "1",
-            "-ar",
-            str(TARGET_SAMPLE_RATE),
-            str(REFERENCE_AUDIO),
-        ]
-    )
+    run_ffmpeg([
+    "ffmpeg",
+    "-y",
+    "-hwaccel", "cuda",
+    "-i", str(INPUT_VIDEO),
+    "-vn",
+    "-ac", "1",
+    "-ar", str(TARGET_SAMPLE_RATE),
+    str(REFERENCE_AUDIO),
+])
 
 
 def load_tts_model(use_cuda: bool) -> TTS:
