@@ -102,6 +102,7 @@ def extract_reference_audio() -> None:
 ])
 
 
+
 def load_tts_model(use_cuda: bool) -> TTS:
     allow_xtts_globals()
     try:
